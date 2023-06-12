@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./style.scss">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Montserrat:400,700&display=swap&subset=latin-ext"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7699fe80ed.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div class="main">
+    <form action="">
+      <div id="input-section" class="input-section">
+        <input id="autoComplete-input" class="input-section_input" name="myCountry" type="text" autocomplete="off" placeholder="Country name">
+        <button class="input-section_btn-submit" type="submit">Submit</button>
+      </div>
+      
+    </form>
+    <div class="wrapper">
+
+      <div class="content">
+
+        <p class="capital">Capital: <span id="capital"></span></p>
+        <p class="currencies">Currencies: <span id="currencies"></span></p>
+        <p class="population">Population: <span id="population"></span> </p>
+        <p class="languages">Languages: <span id="languages"></span> </p>
+      </div>
+
+      <img src="" alt="" class="flag">
+
+    </div>
+    <div class="info">
+      <a href="" class="mapBtn" target="_blank">
+        <i class="fa-solid fa-map-location-dot"></i>
+      </a>
+    </div>
+
+  </div>
+
+
+  <script type="module" src="/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+  <!-- <script type="module" src="./autocomplete.js"></script>  -->
+</body>
+
+</html>
