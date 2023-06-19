@@ -15,9 +15,8 @@ body {
 
 .main {
 	min-width: 30%;
-	height: 35em;
+	height: 36rem;
 	display: flex;
-	background-color: rgba(161, 155, 249, 1);
 	background-image: radial-gradient(circle, rgba(161, 155, 249, 1) 100%, rgba(250, 230, 246, 1) 100%);
 	align-items: center;
 	flex-direction: column;
@@ -28,8 +27,6 @@ body {
 }
 
 .input-section {
-	position: relative;
-	display: inline-block;
     height: 2rem;
 		
 	&_input {
@@ -67,6 +64,7 @@ body {
 		background: white;
 		position: absolute;
 		width: 15rem;
+		z-index: 1;
 
 		
 

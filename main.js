@@ -17,14 +17,9 @@ return name;
 const onInputChange = () => {
 	removeAutocompleteDropdown ();
 	const value = input.value.toLowerCase();
-
 	if(value.length === 0) return;
-
-	const filteredNames = [];
-
-	 countryNames.forEach((countryName) => {
-	 	if(countryName.substring(0, value.length).toLowerCase() === value)
-	 	filteredNames.push(countryName)
+	const filteredNames = countryNames.filter((countryName) => {
+		return countryName.toLowerCase().startsWith(value);
 	 });
 createAutocompleteDropdown(filteredNames);
 
@@ -38,10 +33,11 @@ function createAutocompleteDropdown  (list) {
 	list.forEach(country => {
 		const listItem = document.createElement('li');
 		const countryButton = document.createElement('button');
-		countryButton.innerHTML = country;
+		countryButton.innerText = country;
 		countryButton.addEventListener('click', onCountryButtonClick)
 		listItem.appendChild(countryButton);
 		listEl.appendChild(listItem);
+		
 	});
 
 	document.querySelector('#input-section').appendChild(listEl);
@@ -56,7 +52,6 @@ const onCountryButtonClick = (e) => {
 	
 	const buttonEl = e.target;
 	input.value = buttonEl.innerHTML;
-
 	removeAutocompleteDropdown();
 	 getInfo()
 	
@@ -67,17 +62,15 @@ const getInfo = () => {
 		fetch(`https://restcountries.com/v3.1/name/${input.value}`)
 			.then(res => res.json())
 			.then(data => {
-				const { population: num } = data[0]
+				const { population: num, flags: { png: flagImg } } = data[0]
 				const populationInMln = (num / 1000000).toFixed(2)
 				const currency = Object.values(data[0].currencies)
-				const flagImg = data[0].flags.png
 				const languagesInfo = Object.values(data[0].languages)
 				const maps = data[0].maps.googleMaps
-
 				capital.innerText = data[0].capital
 				currencies.innerText = currency[0].name
 				populationCount.innerText = `${populationInMln} mln`
-				languages.innerText = `${languagesInfo}`
+				languages.innerText = languagesInfo;
 				flag.style.display = 'block'
 				flag.setAttribute('src', flagImg)
 				map.setAttribute('href', maps)
@@ -86,19 +79,23 @@ const getInfo = () => {
 }
 
 input.addEventListener('input', onInputChange)
-
 const onSubmitClick = (event) => {
 	event.preventDefault(); 
 	removeAutocompleteDropdown();
 	const inputValue = input.value.trim();
-  
 	if (inputValue.length === 0) return;
-  
 	input.value = inputValue;
 	getInfo();
   };
   
   submitBtn.addEventListener('click', onSubmitClick);
+  document.body.addEventListener('click', (event) => {
+	input.value = '';
+	removeAutocompleteDropdown();
+  });
+
+  
+  
 
 
 
