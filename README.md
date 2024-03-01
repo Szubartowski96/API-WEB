@@ -21,7 +21,8 @@ An application that provides information about a given country. It utilizes an A
 
 ## Demo 📺
 
-![Api_gift-ezgif com-video-to-gif-converter](https://github.com/Szubartowski96/API-WEB/assets/116031341/faa7b310-c1a2-40fd-8f35-161fe7ca3550)
+![recording-ezgif com-video-to-gif-converter](https://github.com/Szubartowski96/API-WEB/assets/116031341/1dd039c9-0f57-4118-baf5-918bc44f6884)
+
 
 
 
